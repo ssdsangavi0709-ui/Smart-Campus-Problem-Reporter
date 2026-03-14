@@ -212,6 +212,7 @@ background:orange;
 background:green;
 }
 
+
 /* BUTTONS */
 
 .resolve-btn{
@@ -234,4 +235,19 @@ margin-left:10px;
 }
 h1,h2{
 margin-top:20px;
+}
+.admin-btn{
+position: fixed;
+top: 20px;
+right: 20px;
+background-color: #007bff;
+color: white;
+padding: 10px 18px;
+text-decoration: none;
+border-radius: 6px;
+font-weight: bold;
+}
+
+.admin-btn:hover{
+background-color: #0056b3;
 }
