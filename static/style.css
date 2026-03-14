@@ -1,0 +1,237 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    overflow-y:auto;
+
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#74ebd5,#ACB6E5);
+    margin:0;
+    padding:0;
+
+
+}
+
+.container {
+    background: white;
+    padding: 60px;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    width:60%;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    
+}
+
+h1 {
+    
+    text-align:center;
+    color:#333;
+    margin-bottom:20px;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input, select, textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
+    font-size:14px;
+
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+#complaintList {
+    max-height: 300px;   /* limit height */
+    overflow-y: auto;    /* enable vertical scroll */
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+.complaint-card {
+    
+    
+    background:#f9f9f9;
+    border-left:6px solid #4CAF50;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:8px;
+
+}
+
+.logout-btn {
+    background-color: red;
+}
+
+.delete-btn {
+    background-color: darkred;
+}
+
+.status.Pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.status.Resolved {
+    color: green;
+    font-weight: bold;
+}
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    flex: 1;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+.stat-card.total {
+    background-color: #007bff;
+}
+
+.stat-card.pending {
+    background-color: orange;
+}
+
+.stat-card.resolved {
+    background-color: green;
+}
+.complaints-scroll{
+max-height:300px;
+overflow-y:auto;
+margin-top:10px;
+}
+#searchInput{
+width:100%;
+padding:10px;
+margin:15px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+/* LOGIN PAGE */
+
+.login-body{
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: Arial, sans-serif;
+}
+
+.login-container{
+    background:white;
+    padding:40px;
+    border-radius:10px;
+    width:320px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.login-container h2{
+    margin-bottom:20px;
+}
+
+.login-container input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+.login-container button{
+    width:100%;
+    padding:10px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.login-container button:hover{
+    background:#0056b3;
+}
+/* STATUS BADGES */
+
+.status{
+padding:5px 10px;
+border-radius:6px;
+color:white;
+font-weight:bold;
+}
+
+.status.pending{
+background:orange;
+}
+
+.status.resolved{
+background:green;
+}
+
+/* BUTTONS */
+
+.resolve-btn{
+background:blue;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.delete-btn{
+background:red;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:5px;
+cursor:pointer;
+margin-left:10px;
+}
+h1,h2{
+margin-top:20px;
+}

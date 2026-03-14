@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Campus Problem Reporter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Smart Campus Problem Reporter</h1>
+
+    <h2>All Complaints</h2>
+    <div id="complaintList"></div>
+
+  <form id="complaintForm" enctype="multipart/form-data">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="text" name="department" placeholder="Your department" required>
+
+<input type="text" name="location" placeholder="Location" required>
+
+<select name="category" required>
+<option value="">Select category</option>
+<option value="Water">Water</option>
+<option value="Electricity">Electricity</option>
+<option value="Road">Road</option>
+<option value="Sanitation">Sanitation</option>
+</select>
+
+<textarea name="description" placeholder="Describe the issue"></textarea>
+
+<label>Upload Image</label>
+<input type="file" name="image" id="imageInput">
+
+<img id="preview" style="display:none; width:300px; margin-top:20px;">
+
+<button type="submit">Submit Complaint</button>
+
+</form>
+
+    <p id="responseMessage"></p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+[
+    {
+        "id": 19,
+        "name": "kirithra",
+        "department": "cse",
+        "location": "hostel",
+        "category": "Water",
+        "description": "not clean",
+        "status": "Pending",
+        "image": "Screenshot 2026-01-02 023107.png"
+    },
+    {
+        "id": 2,
+        "name": "kirithra",
+        "department": "cse",
+        "location": "hostel",
+        "category": "Electricity",
+        "description": "road",
+        "status": "Pending",
+        "image": "railway crACK.png"
+    },
+    {
+        "id": 3,
+        "name": "sangavi s",
+        "department": "cse",
+        "location": "hostel",
+        "category": "Water",
+        "description": "dcs",
+        "status": "Pending",
+        "image": "Screenshot 2026-01-02 023107.png"
+    },
+    {
+        "id": 4,
+        "name": "sangavi s",
+        "department": "cse",
+        "location": "hostel",
+        "category": "Sanitation",
+        "description": "wdce",
+        "status": "Resolved",
+        "image": "broken fastener.png"
+    }
+]
