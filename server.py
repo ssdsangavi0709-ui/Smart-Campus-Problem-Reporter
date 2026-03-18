@@ -83,6 +83,8 @@ def submit():
         if image and image.filename != "":
             filename = image.filename
             filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+
+            os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
             image.save(filepath)
 
         complaint = {
