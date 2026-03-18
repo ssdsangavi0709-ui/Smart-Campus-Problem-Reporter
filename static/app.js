@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("complaintForm");
     const preview = document.getElementById("preview");
-    const imageInput = document.getElementById("imageInput"); // Added missing definition
+    const imageInput = document.getElementById("imageInput");
     const searchInput = document.getElementById("searchInput");
 
     // 1. Image Preview Logic
@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
             let cards = document.querySelectorAll(".complaint-card");
 
             cards.forEach(card => {
-                // Checks if any text in the card matches the search
                 if (card.innerText.toLowerCase().includes(value)) {
                     card.style.display = "block";
                 } else {
@@ -37,10 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
         form.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            // Using FormData is best for handling both text and files
             let formData = new FormData(form);
 
-            fetch("http://127.0.0.1:5000/submit", {
+            // ✅ FIXED HERE (removed localhost URL)
+            fetch("/submit", {
                 method: "POST",
                 body: formData
             })
@@ -52,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert(data.message || "Complaint submitted successfully!");
                 form.reset();
                 if (preview) preview.style.display = "none"; 
-                loadComplaints(); // Refresh the list
+                loadComplaints();
             })
             .catch(error => {
                 console.error("Error submitting complaint:", error);
@@ -65,14 +64,15 @@ document.addEventListener("DOMContentLoaded", function () {
     loadComplaints();
 });
 
-// --- CRUD Functions (Global Scope) ---
+// --- CRUD Functions ---
 
 // 4. Load all complaints
 function loadComplaints() {
     const list = document.getElementById("complaintList");
     if (!list) return;
 
-    fetch("http://127.0.0.1:5000/complaints")
+    // ✅ FIXED HERE
+    fetch("/complaints")
         .then(response => response.json())
         .then(data => {
             list.innerHTML = "";
@@ -84,7 +84,7 @@ function loadComplaints() {
 
             data.forEach(item => {
                 const div = document.createElement("div");
-                div.className = "complaint-card"; // Added class for search functionality
+                div.className = "complaint-card";
                 div.style.border = "1px solid #ccc";
                 div.style.padding = "12px";
                 div.style.marginBottom = "12px";
@@ -121,7 +121,8 @@ function loadComplaints() {
 function deleteComplaint(id) {
     if (!confirm("Are you sure you want to delete this complaint?")) return;
 
-    fetch(`http://127.0.0.1:5000/delete/${id}`, {
+    // ✅ FIXED HERE
+    fetch(`/delete/${id}`, {
         method: "DELETE"
     })
     .then(response => response.json())
@@ -136,7 +137,8 @@ function deleteComplaint(id) {
 
 // 6. Toggle status
 function toggleStatus(id) {
-    fetch(`http://127.0.0.1:5000/update_status/${id}`, {
+    // ✅ FIXED HERE
+    fetch(`/update_status/${id}`, {
         method: "PUT"
     })
     .then(response => response.json())
