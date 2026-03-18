@@ -70,37 +70,42 @@ def logout():
 # ---------------- Submit Complaint ----------------
 @app.route('/submit', methods=['POST'])
 def submit():
+    try:
+        name = request.form.get("name")
+        department = request.form.get("department")
+        location = request.form.get("location")
+        category = request.form.get("category")
+        description = request.form.get("description")
 
-    name = request.form.get("name")
-    department = request.form.get("department")
-    location = request.form.get("location")
-    category = request.form.get("category")
-    description = request.form.get("description")
+        image = request.files.get("image")
+        filename = ""
 
-    image = request.files.get("image")
-    filename = ""
+        if image and image.filename != "":
+            filename = image.filename
+            filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+            image.save(filepath)
 
-    if image and image.filename != "":
-        filename = image.filename
-        image.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+        complaint = {
+            "id": len(complaints) + 1,
+            "name": name,
+            "department": department,
+            "location": location,
+            "category": category,
+            "description": description,
+            "status": "Pending",
+            "image": filename
+        }
 
-    complaint = {
-        "id": len(complaints) + 1,
-        "name": name,
-        "department": department,
-        "location": location,
-        "category": category,
-        "description": description,
-        "status": "Pending",
-        "image": filename
-    }
+        complaints.append(complaint)
 
-    complaints.append(complaint)
+        with open("complaints.json", "w") as f:
+            json.dump(complaints, f, indent=4)
 
-    with open("complaints.json", "w") as f:
-        json.dump(complaints, f, indent=4)
+        return jsonify({"message": "Complaint submitted successfully!"})
 
-    return jsonify({"message": "Complaint submitted successfully!"})
+    except Exception as e:
+        print("ERROR:", e)   # 👈 check Railway logs
+        return jsonify({"error": "Failed to submit"}), 500
    
 # ---------------- Get All Complaints ----------------
 @app.route('/complaints', methods=['GET'])
@@ -135,8 +140,7 @@ def update_status(id):
 
     return jsonify({"message": "Complaint not found"})
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port,debug=True)

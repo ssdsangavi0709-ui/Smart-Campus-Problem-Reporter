@@ -26,7 +26,7 @@
         "location": "hostel",
         "category": "Water",
         "description": "dcs",
-        "status": "Pending",
+        "status": "Resolved",
         "image": "Screenshot 2026-01-02 023107.png"
     },
     {
@@ -38,5 +38,15 @@
         "description": "wdce",
         "status": "Resolved",
         "image": "broken fastener.png"
+    },
+    {
+        "id": 5,
+        "name": "kirithra",
+        "department": "CSE",
+        "location": "Hostel",
+        "category": "Sanitation",
+        "description": "jkb",
+        "status": "Pending",
+        "image": "rail.png"
     }
 ]
